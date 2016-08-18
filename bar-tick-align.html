@@ -21,9 +21,15 @@ var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
-app.title = '坐标轴刻度与标签对齐';
+
+// TODO: need compute the position
+var rightLabelPos = [530, 8];
 
 option = {
+    title: {
+        text: '各地预警月排名',
+        subtext: '月预警总数: 42.25 万次'
+    },
     color: ['#3398DB'],
     tooltip : {
         trigger: 'axis',
@@ -42,21 +48,98 @@ option = {
             type : 'value'
         }
     ],
+    // NOTE: TAKE CARE SORT OF ITEM
     yAxis : [
         {
             type : 'category',
-            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data : [  '长沙', '武汉', '内蒙', '上海', '厦门', '天津', '北京'],
             axisTick: {
                 alignWithLabel: true
             }
         }
+// ,
+//        {
+//            type: 'value',
+//            data: [ 1.2, 1.5, 2.3, 3.2, 3.8, 4.2, 4.8 ],
+//            axisTick: {
+//                alignWithLabel: true
+//            }
+//        }
+
     ],
     series : [
         {
-            name:'直接访问',
+            name:'月预警总数',
             type:'bar',
             barWidth: '60%',
-            data:[10, 52, 200, 334, 390, 330, 220]
+            data:[
+
+                {
+                    value: 1.2,
+                    itemStyle: { normal: {label:
+                    {
+                        show: true,
+
+                        position: rightLabelPos,
+
+                    }}}
+                },
+                {
+                    value: 1.5,
+                    label: { normal:
+                    {
+                        show: true,
+                        position: rightLabelPos,
+                        //position: ['336%', '25%'],
+                    }}
+                },
+                {
+                    value: 2.3,
+                    label: { normal:
+                    {
+                        show: true,
+                        position: rightLabelPos,
+                        //position: ['336%', '25%'],
+                    }}
+                },
+                {
+                    value: 3.2,
+                    label: { normal:
+                    {
+                        show: true,
+                        position: rightLabelPos,
+                        //position: ['336%', '25%'],
+                    }}
+                },
+                {
+                    value: 3.8,
+                    label: { normal:
+                    {
+                        show: true,
+                        position: rightLabelPos,
+                        //position: ['336%', '25%'],
+                    }}
+                },
+                {
+                    value: 4.2,
+                    label: { normal:
+                    {
+                        show: true,
+                        position: rightLabelPos,
+                        //position: ['336%', '25%'],
+                    }}
+                },
+                {
+                    value: 4.8,
+                    label: { normal:
+                    {
+                        show: true,
+                        position: rightLabelPos,
+                        //position: ['336%', '25%'],
+                    }}
+                },
+            ],
+
         }
     ]
 };
