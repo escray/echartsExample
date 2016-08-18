@@ -4,13 +4,18 @@
        <meta charset="utf-8">
    </head>
    <body style="height: 100%; margin: 0">
-       <div id="container" style="height: 100%"></div>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <div id="container" style="width: 600px; height: 400px"></div>
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>-->
+       <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
+       <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
        <script type="text/javascript">
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
@@ -26,14 +31,15 @@ option = {
     legend: {
         orient: 'vertical',
         x: 'left',
-        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        data:['入侵行为','恶意木马','网络蠕虫','恶意病毒','0day攻击']
     },
     series: [
         {
-            name:'访问来源',
+            name:'威胁构成',
             type:'pie',
-            radius: ['50%', '70%'],
+            radius: ['50%', '60%'],
             avoidLabelOverlap: false,
+            selectedOffset: 100,
             label: {
                 normal: {
                     show: false,
@@ -47,17 +53,31 @@ option = {
                     }
                 }
             },
+
             labelLine: {
                 normal: {
                     show: false
                 }
             },
+
+            itemStyle: {
+                normal: {
+                    borderColor: 'white',
+                    borderWidth: 1,
+                },
+                emphasis: {
+                    show: true,
+                    borderColor: 'white',
+                    borderWidth: 5,
+                }
+            },
+
             data:[
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'}
+                {value:150, name:'入侵行为'},
+                {value:100, name:'恶意木马'},
+                {value:350, name:'网络蠕虫'},
+                {value:220, name:'恶意病毒'},
+                {value:220, name:'0day攻击'}
             ]
         }
     ]
