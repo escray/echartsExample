@@ -4,7 +4,7 @@
        <meta charset="utf-8">
    </head>
    <body style="height: 100%; margin: 0">
-       <div id="container" style="width: 600px; height: 400px"></div>
+       <div id="container" style="width: 340px; height: 220px"></div>
        <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
        <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>-->
        <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
@@ -13,23 +13,26 @@
        <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
 
        <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
-       <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
-       <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
-       <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
-       <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
+       <!--<script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>-->
+       <!--<script type="text/javascript" src="js/echarts/map/js/china.js"></script>-->
+       <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
+       <!--<script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>-->
 
        <script type="text/javascript">
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
-app.title = '部署状态检测';
+app.title = '部署状态监测';
 
 // TODO: set the color and number of bar
 
 option = {
     title: {
         text: '部署状态检测',
+        textStyle: {
+          fontSize: 12,
+        },
 //      subtext: '数据来自网络'
     },
     tooltip: {
@@ -39,7 +42,8 @@ option = {
         }
     },
     legend: {
-        data: ['安装', '未安装']
+        data: ['安装', '未安装'],
+        right: 5,
     },
     grid: {
         left: '3%',

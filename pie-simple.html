@@ -4,13 +4,18 @@
        <meta charset="utf-8">
    </head>
    <body style="height: 100%; margin: 0">
-       <div id="container" style="height: 100%"></div>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <div id="container" style="width: 600px; height: 400px"></div>
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>-->
+       <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>-->
+       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
+       <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
        <script type="text/javascript">
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
@@ -18,8 +23,8 @@ var app = {};
 option = null;
 option = {
     title : {
-        text: '某站点用户访问来源',
-        subtext: '纯属虚构',
+        text: '威胁来源',
+        //subtext: '纯属虚构',
         x:'center'
     },
     tooltip : {
@@ -29,20 +34,34 @@ option = {
     legend: {
         orient: 'vertical',
         left: 'left',
-        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        data: ['移动存储设备','其他计算机','光驱','本地计算机','内存','未知']
+    },
+    itemStyle: {
+        normal: {
+            borderColor: 'white',
+            borderWidth: 1,
+        },
+        emphasis: {
+            show: true,
+            borderColor: 'white',
+            borderWidth: 2,
+        }
     },
     series : [
         {
-            name: '访问来源',
+            name: '威胁来源',
             type: 'pie',
+            selectedOffset: 100,
             radius : '55%',
             center: ['50%', '60%'],
+            // TODO: the value of name might be specified with number and text
             data:[
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'}
+                {value:36, name:'移动存储设备'},
+                {value:26, name:'其他计算机'},
+                {value:18, name:'光驱'},
+                {value:10, name:'本地计算机'},
+                {value:5, name:'内存'},
+                {value:5, name:'未知'}
             ],
             itemStyle: {
                 emphasis: {
